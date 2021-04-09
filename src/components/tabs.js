@@ -13,6 +13,15 @@ const Tabs = (topics) => {
   //   <div class="tab">technology</div>
   // </div>
   //
+
+  const topicDiv = document.createElement('div')
+  const tabDiv = document.createElement('div');
+  topicDiv.classList.add('topics');
+  tabDiv.classList.add('tab');
+  tabDiv.textContent = {topics};
+  topicDiv.appendChild(tabDiv);
+
+  return topicDiv;
 }
 
 const tabsAppender = (selector) => {
@@ -23,6 +32,9 @@ const tabsAppender = (selector) => {
   // Find the array of topics inside the response, and create the tabs using the Tabs component.
   // Append the tabs to the element in the DOM that matches the selector passed to the function.
   //
+  // const topicContainer = document.querySelector(selector);
+
+  // topicContainer.appendChild()
 }
 
 export { Tabs, tabsAppender }
