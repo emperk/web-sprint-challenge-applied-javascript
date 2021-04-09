@@ -1,3 +1,8 @@
+import { topics } from "../mocks/data";
+import axios from 'axios';
+console.log('check out axios: \n \n', axios);
+
+
 const Tabs = (topics) => {
   // TASK 3
   // ---------------------
@@ -20,6 +25,7 @@ const Tabs = (topics) => {
   tabDiv.classList.add('tab');
   tabDiv.textContent = {topics};
   topicDiv.appendChild(tabDiv);
+  console.log("THESE ARE THE TOPICS: "), topics;
 
   return topicDiv;
 }
@@ -32,9 +38,19 @@ const tabsAppender = (selector) => {
   // Find the array of topics inside the response, and create the tabs using the Tabs component.
   // Append the tabs to the element in the DOM that matches the selector passed to the function.
   //
-  // const topicContainer = document.querySelector(selector);
+  const topicContainer = document.querySelector(selector);
 
-  // topicContainer.appendChild()
+topics.forEach(topic => 
+  axios
+  .get(`https://lambda-times-api.herokuapp.com/topics`)
+  .then(response => {
+    console.log(response);
+    const topic = cardMaker(response.data);
+    cardEntry.appendChild(card);
+  })
+  .catch(error => {
+    console.log("Error is here: ", error);
+  }))
 }
 
 export { Tabs, tabsAppender }
