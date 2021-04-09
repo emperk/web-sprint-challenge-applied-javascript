@@ -13,3 +13,12 @@ worker.start()
 headerAppender('.header-container')
 tabsAppender('.tabs-container')
 cardAppender('.cards-container')
+
+
+// window.onload=function(){
+//     const header = document.querySelector('.header')
+//     header.addEventListener("click", function() {
+//       const temp = document.querySelector('.temp')
+//       temp.textContent ="it's hot!"
+//     })
+//   }
