@@ -56,6 +56,12 @@ const cardAppender = (selector) => {
     .then(response => response.data.articles)
     .catch((err) => console.log(err));
 
+  const selected = document.querySelector(selector);
+  const card = for(var i in articles) {
+    
+  }
+  selected.appendChild(card)
+
   console.log('articles', articles)
 };
 
