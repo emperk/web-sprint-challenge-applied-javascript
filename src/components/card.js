@@ -40,6 +40,10 @@ const Card = (article) => {
   card.appendChild(author);
   card.appendChild(authorSpan);
 
+  card.addEventListener("click", function () {
+    console.log("HEADLINE is : ", article.headline)
+  });
+
   return card;
 };
 
@@ -55,21 +59,17 @@ const cardAppender = (selector) => {
   const cardsContainer = document.querySelector(selector);
   axios
     .get("https://lambda-times-api.herokuapp.com/articles")
-    .then(response => {
-      console.log(response.data.articles)
-      const articles = response.data.articles
+    .then((response) => {
+      const articles = response.data.articles;
       for (const key in articles) {
         const articleTopics = articles[key];
-        console.log('articleTops', articleTopics)
-        articleTopics.forEach(article => {
-          const card = Card(article)
-          cardsContainer.appendChild(card)
-        })
+        articleTopics.forEach((article) => {
+          const card = Card(article);
+          cardsContainer.appendChild(card);
+        });
       }
     })
     .catch((err) => console.log(err));
-
-
 };
 
 export { Card, cardAppender };
