@@ -1,3 +1,9 @@
+import { topics } from "../mocks/data";
+import axios from "axios";
+console.log('axios is here: \n \n', axios);
+
+const tabEntry = document.querySelector('.tabs-container');
+
 const Tabs = (topics) => {
   // TASK 3
   // ---------------------
@@ -13,6 +19,17 @@ const Tabs = (topics) => {
   //   <div class="tab">technology</div>
   // </div>
   //
+
+  const topicDiv = document.createElement("div");
+  topicDiv.classList.add("topics");
+  
+  topics.forEach(topic => {
+    const tabDiv = document.createElement("div");
+    tabDiv.classList.add("tab");
+    tabDiv.textContent = topic;
+    topicDiv.appendChild(tabDiv);
+  })
+  return topicDiv;
 }
 
 const tabsAppender = (selector) => {
